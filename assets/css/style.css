@@ -831,6 +831,209 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Dual Mode Switcher (Photo vs 3D) */
+.inspect-mode-switch {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(23, 19, 16, 0.08);
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid rgba(35, 29, 24, 0.08);
+}
+.mode-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: 600 9px/1 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #554a40;
+  padding: 7px 12px;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+}
+.mode-tab-btn svg {
+  stroke: currentColor;
+}
+.mode-tab-btn:hover {
+  color: #171310;
+  background: rgba(255, 255, 255, 0.6);
+}
+.mode-tab-btn.active {
+  background: #d4af37;
+  color: #171310;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+}
+
+/* Editorial Photo Stage */
+.inspect-photo-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: #090b0e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.inspect-photo-stage.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.inspect-photo-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#inspect-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.92) contrast(1.05);
+  animation: subtleZoom 25s ease infinite alternate;
+}
+@keyframes subtleZoom {
+  0% { transform: scale(1.0); }
+  100% { transform: scale(1.05); }
+}
+.inspect-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(14, 17, 20, 0.35) 0%, transparent 40%, rgba(14, 17, 20, 0.75) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px 4vw 45px;
+  pointer-events: none;
+}
+.photo-overlay-content {
+  pointer-events: auto;
+  max-width: 580px;
+}
+.photo-overlay-kicker {
+  color: #e5b958;
+  font: 600 9px/1.2 var(--mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: block;
+}
+.photo-overlay-title {
+  color: #ffffff;
+  font: 300 clamp(24px, 3.2vw, 42px)/1.1 var(--serif);
+  letter-spacing: -0.02em;
+  margin: 6px 0 20px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+}
+.inspect-step-3d-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  color: #171310;
+  font: 600 10px/1 var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 14px 22px;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.25s ease;
+}
+.inspect-step-3d-btn svg {
+  stroke: #92733b;
+}
+.inspect-step-3d-btn .btn-arrow {
+  color: #92733b;
+  font-size: 15px;
+}
+.inspect-step-3d-btn:hover {
+  background: #d4af37;
+  color: #171310;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(212, 175, 55, 0.35);
+}
+.inspect-photo-thumbs {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+  pointer-events: auto;
+  flex-wrap: wrap;
+}
+.thumb-pill {
+  font: 500 9px/1 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(23, 19, 16, 0.65);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 7px 12px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+.thumb-pill:hover, .thumb-pill.active {
+  background: #ffffff;
+  color: #171310;
+  border-color: #ffffff;
+}
+
+/* 3D Projected Spatial Room Pins */
+.inspect-pins-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 8;
+  overflow: hidden;
+}
+.inspect-spatial-pin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  color: #171310;
+  font: 600 9px/1 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.2s ease, background 0.2s ease;
+  margin-left: -12px;
+  margin-top: -12px;
+}
+.inspect-spatial-pin:hover {
+  background: #d4af37;
+  color: #171310;
+  transform: scale(1.08) !important;
+}
+.pin-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d4af37;
+  box-shadow: 0 0 8px #d4af37;
+  animation: pinPulse 1.8s infinite;
+}
+@keyframes pinPulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.6); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 /* Top Right Actions */
 .inspect-top-actions {
   display: flex;
@@ -1094,8 +1297,8 @@ img { display: block; max-width: 100%; }
 @media (max-width: 991px) {
   .inspect-topbar {
     flex-wrap: wrap;
-    gap: 12px;
-    padding: 14px 4vw;
+    gap: 10px;
+    padding: 12px 4vw;
   }
   .inspect-residence-nav {
     order: 3;
@@ -1103,7 +1306,67 @@ img { display: block; max-width: 100%; }
     justify-content: center;
     overflow-x: auto;
   }
+  .inspect-mode-switch {
+    order: 2;
+  }
   .inspect-spec-card {
+    position: absolute;
+    bottom: 12px;
+    right: 4vw;
+    left: 4vw;
+    width: auto;
+    max-width: none;
+    max-height: 180px;
+    padding: 14px 18px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+  }
+  .spec-features-list {
     display: none;
+  }
+  .inspect-hud-controls {
+    bottom: 200px;
+    left: 4vw;
+  }
+  .inspect-interaction-hint {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .inspect-topbar {
+    padding: 10px 14px;
+  }
+  .inspect-title {
+    font-size: 16px;
+  }
+  .inspect-badge {
+    font-size: 8px;
+  }
+  .inspect-nav-btn {
+    font-size: 8px;
+    padding: 6px 10px;
+  }
+  .mode-tab-btn {
+    font-size: 8px;
+    padding: 6px 10px;
+  }
+  .solar-btn {
+    font-size: 8px;
+    padding: 5px 8px;
+  }
+  .inspect-close-btn {
+    font-size: 8px;
+    padding: 8px 12px;
+  }
+  .photo-overlay-title {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+  .inspect-step-3d-btn {
+    font-size: 9px;
+    padding: 11px 16px;
   }
 }
