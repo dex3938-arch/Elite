@@ -152,7 +152,7 @@
             </ul>
             <p class="residence-description">Private plunge pool &amp; sunset ocean deck.</p>
             <div class="residence-actions">
-              <button type="button" class="inspect-property-btn" data-inspect-view="villa1" data-scroll="#model">Inspect in 3D <span aria-hidden="true">↗</span></button>
+              <button type="button" class="inspect-property-btn" data-inspect-view="villa1">Inspect in 3D <span aria-hidden="true">↗</span></button>
               <a class="factsheet-link" href="#enquire" data-scroll="#enquire" data-interest="Factsheet — Villa 01 Lagoon Suite">Request Investor Factsheet</a>
             </div>
           </div>
@@ -172,7 +172,7 @@
             </ul>
             <p class="residence-description">Two-storey master penthouse &amp; cantilevered soaking tub.</p>
             <div class="residence-actions">
-              <button type="button" class="inspect-property-btn" data-inspect-view="villa2" data-scroll="#model">Inspect in 3D <span aria-hidden="true">↗</span></button>
+              <button type="button" class="inspect-property-btn" data-inspect-view="villa2">Inspect in 3D <span aria-hidden="true">↗</span></button>
               <a class="factsheet-link" href="#enquire" data-scroll="#enquire" data-interest="Factsheet — Villa 02 Sunset Residence">Request Investor Factsheet</a>
             </div>
           </div>
@@ -192,7 +192,7 @@
             </ul>
             <p class="residence-description">Private beach parcel, twin pools &amp; yacht mooring.</p>
             <div class="residence-actions">
-              <button type="button" class="inspect-property-btn" data-inspect-view="compound" data-scroll="#model">Inspect in 3D <span aria-hidden="true">↗</span></button>
+              <button type="button" class="inspect-property-btn" data-inspect-view="compound">Inspect in 3D <span aria-hidden="true">↗</span></button>
               <a class="factsheet-link" href="#enquire" data-scroll="#enquire" data-interest="Factsheet — Grand Presidential Compound">Request Investor Factsheet</a>
             </div>
           </div>
@@ -212,7 +212,7 @@
             </ul>
             <p class="residence-description">Lush private botanical garden &amp; hydrotherapy pool.</p>
             <div class="residence-actions">
-              <button type="button" class="inspect-property-btn" data-inspect-view="spa" data-scroll="#model">Inspect in 3D <span aria-hidden="true">↗</span></button>
+              <button type="button" class="inspect-property-btn" data-inspect-view="spa">Inspect in 3D <span aria-hidden="true">↗</span></button>
               <a class="factsheet-link" href="#enquire" data-scroll="#enquire" data-interest="Factsheet — Garden Wellness Sanctuary">Request Investor Factsheet</a>
             </div>
           </div>
@@ -792,6 +792,95 @@
     </div>
   </div>
 
+  <!-- ═════════ 3D Architectural Residence Inspector (Dedicated Distinct Models) ═════════ -->
+  <div class="residence-inspect-modal" id="residence-inspect-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="3D Residence Architectural Inspector" data-lenis-prevent>
+    <div class="inspect-canvas-wrap">
+      <canvas id="residence-inspect-canvas" aria-hidden="true"></canvas>
+      <div class="inspect-vignette" aria-hidden="true"></div>
+    </div>
+
+    <!-- Top Bar: Navigation, Title & Solar Control -->
+    <header class="inspect-topbar">
+      <div class="inspect-meta">
+        <span class="inspect-kicker">ARCHITECTURAL INSPECTOR · PRIVATE RESIDENCE</span>
+        <h2 class="inspect-title" id="inspect-title">Villa 01 — Lagoon Suite</h2>
+        <span class="inspect-badge" id="inspect-badge">220 m² · 2 BEDS · $4,850,000 USD</span>
+      </div>
+      
+      <!-- Center: Switcher for 4 Residences -->
+      <nav class="inspect-residence-nav" aria-label="Select Residence">
+        <button type="button" class="inspect-nav-btn active" data-residence="villa1">Villa 01</button>
+        <button type="button" class="inspect-nav-btn" data-residence="villa2">Villa 02</button>
+        <button type="button" class="inspect-nav-btn" data-residence="compound">Presidential</button>
+        <button type="button" class="inspect-nav-btn" data-residence="spa">Garden Spa</button>
+      </nav>
+
+      <div class="inspect-top-actions">
+        <!-- 24-hr Solar Lighting Toggle -->
+        <div class="inspect-solar-switch" role="group" aria-label="Lighting simulator">
+          <button type="button" class="solar-btn active" data-solar="day" title="Daylight 12:00">☀️ Day</button>
+          <button type="button" class="solar-btn" data-solar="sunset" title="Golden Hour 18:15">🌅 Sunset</button>
+          <button type="button" class="solar-btn" data-solar="night" title="Nocturne 22:30">🌙 Night</button>
+        </div>
+        <button type="button" class="inspect-close-btn" id="inspect-close-btn" aria-label="Close 3D inspection">
+          <span>Close</span> ✕
+        </button>
+      </div>
+    </header>
+
+    <!-- Bottom Left HUD: Orbit & View Controls -->
+    <div class="inspect-hud-controls">
+      <button type="button" class="inspect-hud-btn active" id="inspect-btn-autorotate" aria-pressed="true" title="Toggle Auto-Orbit">
+        <i class="hud-dot"></i><span>Auto Orbit: ON</span>
+      </button>
+      <button type="button" class="inspect-hud-btn" id="inspect-btn-reset" title="Reset Camera View">
+        <span>Reset View</span>
+      </button>
+      <div class="inspect-level-switch" id="inspect-level-switch" hidden>
+        <button type="button" class="inspect-level-btn active" data-inspect-level="all">Full Residence</button>
+        <button type="button" class="inspect-level-btn" data-inspect-level="level1">Level 1 (Deck &amp; Pool)</button>
+        <button type="button" class="inspect-level-btn" data-inspect-level="level2">Level 2 (Penthouse)</button>
+        <button type="button" class="inspect-level-btn" data-inspect-level="cutaway">Exploded Cutaway</button>
+      </div>
+    </div>
+
+    <!-- Floating Glassmorphic Spec Drawer (Bottom Right) -->
+    <aside class="inspect-spec-card" id="inspect-spec-card">
+      <div class="spec-card-head">
+        <span class="spec-card-kicker">ARCHITECTURAL SPECIFICATIONS</span>
+        <h4 class="spec-card-name" id="spec-card-name">Villa 01 — Lagoon Suite</h4>
+      </div>
+      <div class="spec-metrics-grid">
+        <div class="spec-metric"><span>Gross Living Area</span><strong id="spec-area">220 m² / 2,368 sq ft</strong></div>
+        <div class="spec-metric"><span>Private Pool</span><strong id="spec-pool">8.5m Ocean Plunge</strong></div>
+        <div class="spec-metric"><span>Ceiling Height</span><strong id="spec-ceiling">3.6m Cantilevered</strong></div>
+        <div class="spec-metric"><span>Water Frontage</span><strong id="spec-frontage">24m Private Lagoon</strong></div>
+        <div class="spec-metric"><span>Orientation</span><strong id="spec-orientation">240° WSW Sunset</strong></div>
+        <div class="spec-metric"><span>Acquisition Price</span><strong id="spec-price" class="gold-text">$4,850,000 USD</strong></div>
+      </div>
+      <div class="spec-features-list">
+        <span class="spec-features-title">KEY DESIGN HIGHLIGHTS</span>
+        <ul id="spec-features">
+          <li>Cantilevered weathered Burmese teak sun deck</li>
+          <li>Floor-to-ceiling frameless sliding glass facade</li>
+          <li>Sub-floor marine stilts with direct ocean swim ladder</li>
+          <li>Overwater net hammock suspended above lagoon water</li>
+          <li>Master king suite with illuminated acoustic wood headboard</li>
+        </ul>
+      </div>
+      <div class="spec-card-actions">
+        <button type="button" class="inspect-inquire-btn" id="inspect-inquire-btn">
+          <span>Inquire About This Property</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        </button>
+      </div>
+    </aside>
+
+    <div class="inspect-interaction-hint">
+      <span>Drag to Orbit · Scroll / Pinch to Zoom · Right Click to Pan</span>
+    </div>
+  </div>
+
   <!-- Scripts: vendor libraries, then site code -->
   <script src="assets/vendor/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/gsap.min.js"></script>
@@ -800,6 +889,7 @@
   <script src="assets/vendor/three.min.js"></script>
   <script src="assets/js/data.js"></script>
   <script src="assets/js/villa3d.js"></script>
+  <script src="assets/js/residence-inspector.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
