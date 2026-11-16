@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elite — Resort &amp; Residences</title>
-  <meta name="description" content="Elite Resort & Residences — eighteen private villas on a lagoon of your own." />
+  <title>Elite — Real Estate &amp; Private Residences</title>
+  <meta name="description" content="Curated private island residences and estates for refined living at Elite, Maldives." />
   <meta name="theme-color" content="#090807" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23090807'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-size='20' fill='%23d4af37'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E" />
 
@@ -32,15 +32,14 @@
 
   <!-- ═════════ Navigation ═════════ -->
   <header class="site-nav">
-    <a class="logo" href="#top" data-scroll="#top" aria-label="Elite Resort and Residences, home">
-      <span class="logo-mark">✦</span><span>ELITE</span><small>RESORT &amp; RESIDENCES</small>
+    <a class="logo" href="#top" data-scroll="#top" aria-label="Elite Real Estate and Private Residences, home">
+      <span class="logo-mark">✦</span><span>ELITE</span><small>REAL ESTATE &amp; PRIVATE RESIDENCES</small>
     </a>
     <nav class="nav-links d-none d-lg-flex" aria-label="Primary">
+      <a href="#catalog" data-scroll="#catalog">Residences</a>
+      <a href="#pillars" data-scroll="#pillars">Our standard</a>
+      <a href="#model" data-scroll="#model">3D master plan</a>
       <a href="#about" data-scroll="#about">The resort</a>
-      <a href="#villa" data-scroll="#villa">The villa</a>
-      <a href="#amenities" data-scroll="#amenities">Amenities</a>
-      <a href="#activities" data-scroll="#activities">Activities</a>
-      <a href="#gallery" data-scroll="#gallery">Gallery</a>
     </nav>
     <a class="nav-book d-none d-lg-flex" href="#enquire" data-scroll="#enquire">Enquire
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
@@ -53,17 +52,16 @@
   <!-- Mobile / tablet menu (Bootstrap offcanvas) -->
   <div class="offcanvas offcanvas-top site-menu" tabindex="-1" id="siteMenu" aria-labelledby="siteMenuLabel" data-lenis-prevent>
     <div class="site-menu-top">
-      <span class="section-kicker" id="siteMenuLabel">[ MENU ]</span>
+      <span class="section-kicker" id="siteMenuLabel">NAVIGATION</span>
       <button type="button" class="site-menu-close" data-bs-dismiss="offcanvas">Close <span>✕</span></button>
     </div>
     <nav class="site-menu-links" aria-label="Mobile">
-      <a href="#about" data-scroll="#about"><i>01</i>The resort</a>
-      <a href="#villa" data-scroll="#villa"><i>02</i>The villa</a>
-      <a href="#model" data-scroll="#model"><i>03</i>Explore in 3D</a>
-      <a href="#amenities" data-scroll="#amenities"><i>04</i>Amenities</a>
-      <a href="#activities" data-scroll="#activities"><i>05</i>Activities</a>
-      <a href="#gallery" data-scroll="#gallery"><i>06</i>Gallery</a>
-      <a href="#enquire" data-scroll="#enquire"><i>07</i>Enquire</a>
+      <a href="#catalog" data-scroll="#catalog"><i>01</i>Residences</a>
+      <a href="#pillars" data-scroll="#pillars"><i>02</i>Our standard</a>
+      <a href="#model" data-scroll="#model"><i>03</i>3D master plan</a>
+      <a href="#about" data-scroll="#about"><i>04</i>The resort</a>
+      <a href="#amenities" data-scroll="#amenities"><i>05</i>Amenities</a>
+      <a href="#enquire" data-scroll="#enquire"><i>06</i>Enquire</a>
     </nav>
     <div class="site-menu-foot">
       <span>reservations@elite-resort.example</span><span>Baa Atoll · Maldives</span>
@@ -72,33 +70,179 @@
 
   <main class="site-shell">
 
-    <!-- ═════════ 01 · Hero ═════════ -->
-    <section class="hero" id="top">
+    <!-- ═════════ 01 · Real estate hero ═════════ -->
+    <section class="hero realestate-hero" id="top">
       <div class="hero-media">
-        <div class="hero-image" style="background-image:url('assets/img/hero.jpg'),var(--fallback)"></div>
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/img/lagoon.jpg">
+          <source media="(max-width: 767px)" src="assets/vid/hero-mobile.mp4" type="video/mp4">
+          <source src="assets/vid/hero.mp4" type="video/mp4">
+        </video>
       </div>
       <div class="hero-wash"></div>
       <div class="hero-content">
-        <p class="eyebrow">04° 12' 18" N &nbsp; / &nbsp; 73° 32' 41" E</p>
-        <h1>
-          <span><span>Where the</span></span>
-          <span><span>world falls</span></span>
-          <span><span class="italic">away.</span></span>
-        </h1>
-        <p class="hero-sub">Eighteen private villas on a lagoon of your own.<br />Elite Resort &amp; Residences.</p>
+        <p class="eyebrow">A PRIVATE ISLAND COLLECTION &nbsp; / &nbsp; MALDIVES</p>
+        <h1 class="realestate-hero-title"><span><span>Buy. Invest. Live.</span></span></h1>
+        <p class="hero-sub">Curated private island residences &amp; estates for refined living.</p>
         <div class="hero-actions">
-          <a class="outline-button" href="#enquire" data-scroll="#enquire">Plan your stay
+          <a class="outline-button" href="#catalog" data-scroll="#catalog">Explore residences
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
           </a>
-          <a class="text-link" href="#villa" data-scroll="#villa">Step inside a villa</a>
+          <a class="text-link" href="#model" data-scroll="#model">View the 3D master plan</a>
         </div>
       </div>
       <div class="hero-footer">
-        <span class="scroll-hint">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
-          Scroll to wander
+        <span class="hero-coordinate">
+          <span>PRIVATE ATOLL</span>
+          04° 12' 18" N &nbsp; / &nbsp; 73° 32' 41" E
         </span>
-        <span class="hero-index">01 <i></i> 08</span>
+        <span class="hero-audio-pill"><i aria-hidden="true"></i> AUDIO / DRONE TOUR READY</span>
+      </div>
+      <form class="property-filter-bar" id="property-filter-form" aria-label="Search private residences">
+        <label class="filter-field">
+          <span>PROPERTY TYPE</span>
+          <select id="filter-type" name="type">
+            <option value="all">All Residences</option>
+            <option value="lagoon">Lagoon Villas</option>
+            <option value="sunset">Sunset Penthouses</option>
+            <option value="beach">Beach Compounds</option>
+          </select>
+        </label>
+        <label class="filter-field">
+          <span>BUDGET</span>
+          <select id="filter-budget" name="budget">
+            <option value="any">Any Price</option>
+            <option value="3-5">$3M - $5M</option>
+            <option value="5-10">$5M - $10M</option>
+            <option value="10+">$10M+ USD</option>
+          </select>
+        </label>
+        <label class="filter-field">
+          <span>BEDROOMS</span>
+          <select id="filter-beds" name="bedrooms">
+            <option value="any">Any Bedrooms</option>
+            <option value="2">2 Bedrooms</option>
+            <option value="3-4">3-4 Bedrooms</option>
+            <option value="5+">5+ Bed Penthouses</option>
+          </select>
+        </label>
+        <button class="filter-search-btn" type="submit">Explore 18 Estates <span aria-hidden="true">↗</span></button>
+      </form>
+    </section>
+
+    <!-- ═════════ 02 · Curated real estate collection ═════════ -->
+    <section class="residences-catalog section" id="catalog">
+      <div class="catalog-header" data-reveal>
+        <span class="section-kicker">CURATED COLLECTION</span>
+        <h2>Exclusive Island<br /><em>Residences for Sale.</em></h2>
+        <p>Each residence is sold with freehold or 50-year renewable title, autonomous plunge pools, and 100% hotel management.</p>
+      </div>
+      <div class="residence-grid" id="residence-grid">
+        <article class="residence-card" data-category="lagoon" data-price="3850000" data-beds="2">
+          <div class="residence-image media">
+            <img loading="lazy" src="assets/img/lagoon.jpg" alt="Overwater Lagoon Suite with private pool" />
+            <span class="residence-status">AVAILABLE</span>
+            <span class="residence-index">01 / 04</span>
+          </div>
+          <div class="residence-card-body">
+            <div class="residence-card-heading"><div><span class="residence-type">LAGOON VILLA</span><h3>Villa 01 — Lagoon Suite</h3></div><strong class="residence-price">$3,850,000 <small>USD</small></strong></div>
+            <ul class="residence-specs" aria-label="Residence specifications">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19V9a2 2 0 0 1 2-2h3a3 3 0 0 1 3 3v9M3 14h18v5M11 12h8a2 2 0 0 1 2 2v5"/></svg>2 Beds</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12V6a2 2 0 0 1 4 0v6m-5 0h18v3a5 5 0 0 1-5 5h-8a5 5 0 0 1-5-5v-3Zm2 8v2m14-2v2"/></svg>3 Baths</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM8 9h8m-8 3h8m-8 3h5"/></svg>2,368 sq ft</li>
+            </ul>
+            <p class="residence-description">Private plunge pool &amp; sunset ocean deck.</p>
+            <div class="residence-actions">
+              <button type="button" class="inspect-property-btn" data-inspect-view="villa1" data-scroll="#model">Inspect in 3D <span aria-hidden="true">↗</span></button>
+              <a class="factsheet-link" href="#enquire" data-scroll="#enquire" data-interest="Factsheet — Villa 01 Lagoon Suite">Request Investor Factsheet</a>
+            </div>
+          </div>
+        </article>
+        <article class="residence-card" data-category="sunset" data-price="7450000" data-beds="4">
+          <div class="residence-image media">
+            <img loading="lazy" src="assets/img/bedroom.jpg" alt="Sunset Residence master penthouse" />
+            <span class="residence-status">AVAILABLE</span>
+            <span class="residence-index">02 / 04</span>
+          </div>
+          <div class="residence-card-body">
+            <div class="residence-card-heading"><div><span class="residence-type">SUNSET PENTHOUSE</span><h3>Villa 02 — Sunset Residence</h3></div><strong class="residence-price">$7,450,000 <small>USD</small></strong></div>
+            <ul class="residence-specs" aria-label="Residence specifications">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19V9a2 2 0 0 1 2-2h3a3 3 0 0 1 3 3v9M3 14h18v5M11 12h8a2 2 0 0 1 2 2v5"/></svg>4 Beds</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12V6a2 2 0 0 1 4 0v6m-5 0h18v3a5 5 0 0 1-5 5h-8a5 5 0 0 1-5-5v-3Zm2 8v2m14-2v2"/></svg>5 Baths</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM8 9h8m-8 3h8m-8 3h5"/></svg>4,736 sq ft</li>
+            </ul>
+            <p class="residence-description">Two-storey master penthouse &amp; cantilevered soaking tub.</p>
+            <div class="residence-actions">
+              <button type="button" class="inspect-property-btn" data-inspect-view="villa2" data-scroll="#model">Inspect in 3D <span aria-hidden="true">↗</span></button>
+              <a class="factsheet-link" href="#enquire" data-scroll="#enquire" data-interest="Factsheet — Villa 02 Sunset Residence">Request Investor Factsheet</a>
+            </div>
+          </div>
+        </article>
+        <article class="residence-card" data-category="beach" data-price="14200000" data-beds="6">
+          <div class="residence-image media">
+            <img loading="lazy" src="assets/img/pavilion.jpg" alt="Private beach presidential compound" />
+            <span class="residence-status is-offer">UNDER OFFER</span>
+            <span class="residence-index">03 / 04</span>
+          </div>
+          <div class="residence-card-body">
+            <div class="residence-card-heading"><div><span class="residence-type">PRIVATE BEACH COMPOUND</span><h3>Grand Presidential Compound</h3></div><strong class="residence-price">$14,200,000 <small>USD</small></strong></div>
+            <ul class="residence-specs" aria-label="Residence specifications">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19V9a2 2 0 0 1 2-2h3a3 3 0 0 1 3 3v9M3 14h18v5M11 12h8a2 2 0 0 1 2 2v5"/></svg>6 Beds</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12V6a2 2 0 0 1 4 0v6m-5 0h18v3a5 5 0 0 1-5 5h-8a5 5 0 0 1-5-5v-3Zm2 8v2m14-2v2"/></svg>7 Baths</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM8 9h8m-8 3h8m-8 3h5"/></svg>8,200 sq ft</li>
+            </ul>
+            <p class="residence-description">Private beach parcel, twin pools &amp; yacht mooring.</p>
+            <div class="residence-actions">
+              <button type="button" class="inspect-property-btn" data-inspect-view="compound" data-scroll="#model">Inspect in 3D <span aria-hidden="true">↗</span></button>
+              <a class="factsheet-link" href="#enquire" data-scroll="#enquire" data-interest="Factsheet — Grand Presidential Compound">Request Investor Factsheet</a>
+            </div>
+          </div>
+        </article>
+        <article class="residence-card" data-category="lagoon" data-price="4600000" data-beds="3">
+          <div class="residence-image media">
+            <img loading="lazy" src="assets/img/garden-pool.jpg" alt="Garden Wellness Sanctuary hydrotherapy pool" />
+            <span class="residence-status">AVAILABLE</span>
+            <span class="residence-index">04 / 04</span>
+          </div>
+          <div class="residence-card-body">
+            <div class="residence-card-heading"><div><span class="residence-type">GARDEN RESIDENCE</span><h3>Garden Wellness Sanctuary</h3></div><strong class="residence-price">$4,600,000 <small>USD</small></strong></div>
+            <ul class="residence-specs" aria-label="Residence specifications">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19V9a2 2 0 0 1 2-2h3a3 3 0 0 1 3 3v9M3 14h18v5M11 12h8a2 2 0 0 1 2 2v5"/></svg>3 Beds</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12V6a2 2 0 0 1 4 0v6m-5 0h18v3a5 5 0 0 1-5 5h-8a5 5 0 0 1-5-5v-3Zm2 8v2m14-2v2"/></svg>4 Baths</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM8 9h8m-8 3h8m-8 3h5"/></svg>3,337 sq ft</li>
+            </ul>
+            <p class="residence-description">Lush private botanical garden &amp; hydrotherapy pool.</p>
+            <div class="residence-actions">
+              <button type="button" class="inspect-property-btn" data-inspect-view="spa" data-scroll="#model">Inspect in 3D <span aria-hidden="true">↗</span></button>
+              <a class="factsheet-link" href="#enquire" data-scroll="#enquire" data-interest="Factsheet — Garden Wellness Sanctuary">Request Investor Factsheet</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p class="catalog-empty" id="catalog-empty" hidden>No residences match these filters. Adjust your search to see more of the collection.</p>
+    </section>
+
+    <!-- ═════════ 03 · Architectural pillars ═════════ -->
+    <section class="architecture-pillars section" id="pillars">
+      <div class="pillars-heading" data-reveal>
+        <span class="section-kicker">THE ELITE STANDARD</span>
+        <h2>Considered in every<br /><em>last detail.</em></h2>
+      </div>
+      <div class="pillars-grid">
+        <article class="pillar-card" data-reveal>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 39h36M10 39V19l14-10 14 10v20M17 39V26h14v13M17 19h.01M31 19h.01M24 9V4M7 19H3m42 0h-4M10 12l-3-3m31 3 3-3"/></svg>
+          <span>01 / ARCHITECTURE</span><h3>Bespoke Architecture</h3>
+          <p>Biophilic design, floor-to-ceiling acoustic glass, and honed Roman travertine shaped around the island landscape.</p>
+        </article>
+        <article class="pillar-card" data-reveal>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 40 11v12c0 10-7 16-16 20C15 39 8 33 8 23V11l16-6Z"/><path d="m17 24 5 5 10-11"/></svg>
+          <span>02 / OWNERSHIP</span><h3>100% Fully Managed Title</h3>
+          <p>Complete hospitality management by Elite, with a private residence and zero owner maintenance burdens.</p>
+        </article>
+        <article class="pillar-card" data-reveal>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 39h34M11 34l9-10 7 6 11-15M30 15h8v8"/></svg>
+          <span>03 / PERFORMANCE</span><h3>Projected Yield</h3>
+          <p>8.4% net annualized rental return through managed placement in the luxury resort inventory.</p>
+        </article>
       </div>
     </section>
 
@@ -108,7 +252,7 @@
 
     <!-- ═════════ 02 · About ═════════ -->
     <section class="about section" id="about">
-      <div class="section-kicker" data-reveal>[ 02 / THE RESORT ]</div>
+      <div class="section-kicker" data-reveal>02 — AN ISLAND SANCTUARY</div>
       <div class="row about-grid">
         <div class="col-lg-7" data-reveal>
           <h2>Not a place<br /><em>to be found.</em></h2>
@@ -117,7 +261,7 @@
           <div class="about-copy">
             <p class="lead">Elite is a private island resort at the quiet edge of the atoll. Days unfold without agenda and the ocean writes the only itinerary.</p>
             <p>Arrive by seaplane or sail in beyond the reef. In the hush of the palms you will find only eighteen villas, an unbroken house reef, and a team who knows when to disappear.</p>
-            <a class="text-link" href="#model" data-scroll="#model">Explore the villa in 3D
+            <a class="text-link" href="#model" data-scroll="#model">Step into the archipelago
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
             </a>
           </div>
@@ -142,7 +286,7 @@
         <span class="dive-word dive-word-a">Step</span>
         <span class="dive-word dive-word-b"><em>inside.</em></span>
       </div>
-      <div class="dive-kicker section-kicker">[ 03 / THE WATER VILLA ]</div>
+      <div class="dive-kicker section-kicker">03 — OVERWATER LIVING</div>
 
       <div class="dive-window">
         <div class="dive-layer" style="--o:52% 52%;background-image:url('assets/img/lagoon.jpg'),var(--fallback)"></div>
@@ -189,53 +333,147 @@
       <div class="dive-hint" aria-hidden="true">Keep scrolling to go deeper</div>
     </section>
 
-    <!-- ═════════ 04 · 3D villa model (drag to rotate, scroll to take apart) ═════════ -->
-    <section class="model" id="model" aria-label="The villa in 3D">
+    <!-- ═════════ 04 · The Private Ocean Archipelago ═════════ -->
+    <section class="model" id="model" aria-label="The Ocean Archipelago">
       <canvas class="model-canvas" aria-hidden="true"></canvas>
       <div class="model-vignette" aria-hidden="true"></div>
-      <div class="section-kicker model-kicker">[ 04 / THE VILLA IN 3D ]</div>
+      <div class="section-kicker model-kicker">04 — THE OCEAN ARCHIPELAGO</div>
 
       <div class="model-labels" aria-hidden="true">
-        <span class="model-label" data-anchor="pool" data-set="a"><i></i>Infinity pool · 12 m</span>
-        <span class="model-label" data-anchor="jetty" data-set="a"><i></i>Private jetty</span>
-        <span class="model-label" data-anchor="deck" data-set="a"><i></i>Teak sun deck</span>
-        <span class="model-label" data-anchor="roof" data-set="b"><i></i>Roof garden · 90 m²</span>
-        <span class="model-label" data-anchor="l2" data-set="b"><i></i>Level 02 · Master suite · 110 m²</span>
-        <span class="model-label" data-anchor="l1" data-set="b"><i></i>Level 01 · Living &amp; dining · 150 m²</span>
+        <span class="model-label" data-anchor="villa1" data-set="a"><i></i>Villa 01 · Lagoon Suite</span>
+        <span class="model-label" data-anchor="villa2" data-set="a"><i></i>Villa 02 · Sunset Residence</span>
+        <span class="model-label" data-anchor="pavilion" data-set="a"><i></i>Grand Club &amp; Dining</span>
+        <span class="model-label" data-anchor="pool" data-set="b"><i></i>Main Infinity Pool</span>
+        <span class="model-label" data-anchor="spa" data-set="b"><i></i>Wellness &amp; Spa Pavilion</span>
+        <span class="model-label" data-anchor="jetty" data-set="b"><i></i>Arrival Pier</span>
+      </div>
+
+      <div class="solar-status-pill" id="solar-status-pill" aria-live="polite">
+        <i class="solar-orb" aria-hidden="true"></i>
+        <span class="solar-phase-name">GOLDEN HOUR</span>
+        <span class="solar-sep">·</span>
+        <span class="solar-phase-time">18:15</span>
+      </div>
+
+      <aside class="finishes-panel" id="finishes-panel" aria-label="Residence material finishes">
+        <div class="finish-group" data-cat="stone">
+          <span class="finish-label">STONE</span>
+          <div class="swatches">
+            <button type="button" class="swatch active" data-cat="stone" data-key="travertine" style="--swatch-color:#dfd2c4" title="Roman Travertine" aria-label="Apply Roman Travertine" aria-pressed="true"></button>
+            <button type="button" class="swatch" data-cat="stone" data-key="basalt" style="--swatch-color:#2b2d30" title="Charcoal Basalt" aria-label="Apply Charcoal Basalt" aria-pressed="false"></button>
+            <button type="button" class="swatch" data-cat="stone" data-key="thassos" style="--swatch-color:#f4f2ee" title="Grecian Thassos" aria-label="Apply Grecian Thassos" aria-pressed="false"></button>
+          </div>
+        </div>
+        <div class="finish-group" data-cat="timber">
+          <span class="finish-label">TIMBER DECK</span>
+          <div class="swatches">
+            <button type="button" class="swatch active" data-cat="timber" data-key="teak" style="--swatch-color:#6e4e39" title="Smoked Teak" aria-label="Apply Smoked Teak" aria-pressed="true"></button>
+            <button type="button" class="swatch" data-cat="timber" data-key="driftwood" style="--swatch-color:#968a7c" title="Bleached Driftwood" aria-label="Apply Bleached Driftwood" aria-pressed="false"></button>
+            <button type="button" class="swatch" data-cat="timber" data-key="wenge" style="--swatch-color:#261a14" title="Wenge Noir" aria-label="Apply Wenge Noir" aria-pressed="false"></button>
+          </div>
+        </div>
+        <div class="finish-group" data-cat="pool">
+          <span class="finish-label">POOL TILE</span>
+          <div class="swatches">
+            <button type="button" class="swatch active" data-cat="pool" data-key="turquoise" style="--swatch-color:#48cadb" title="Maldivian Cyan" aria-label="Apply Maldivian Cyan pool finish" aria-pressed="true"></button>
+            <button type="button" class="swatch" data-cat="pool" data-key="emerald" style="--swatch-color:#2ec492" title="Emerald Lagoon" aria-label="Apply Emerald Lagoon pool finish" aria-pressed="false"></button>
+            <button type="button" class="swatch" data-cat="pool" data-key="sapphire" style="--swatch-color:#2462b8" title="Midnight Sapphire" aria-label="Apply Midnight Sapphire pool finish" aria-pressed="false"></button>
+          </div>
+        </div>
+      </aside>
+
+      <aside class="arch-spec-drawer" id="arch-spec-drawer" aria-label="Architectural specification" aria-hidden="true">
+        <header class="spec-header">
+          <div>
+            <span class="spec-kicker">ARCHITECTURAL SPECIFICATION</span>
+            <h3 class="spec-title">Villa 01 — Lagoon Suite</h3>
+          </div>
+          <button type="button" class="spec-close" aria-label="Close specification drawer">✕</button>
+        </header>
+        <div class="spec-grid">
+          <div class="spec-item"><span>Gross Living Area</span><strong data-spec="area">220 m² / 2,368 sq ft</strong></div>
+          <div class="spec-item"><span>Ceiling Clearance</span><strong data-spec="ceiling">3.6m Cantilevered</strong></div>
+          <div class="spec-item"><span>Water Frontage</span><strong data-spec="frontage">24m Private Lagoon</strong></div>
+          <div class="spec-item"><span>Solar Orientation</span><strong data-spec="orientation">240° WSW Sunset</strong></div>
+        </div>
+        <div class="spec-level-switch" role="group" aria-label="Sunset Residence levels" hidden>
+          <button type="button" class="spec-level-pill active" data-level="all">All Levels</button>
+          <button type="button" class="spec-level-pill" data-level="level1">Level 1: Living &amp; Pool</button>
+          <button type="button" class="spec-level-pill" data-level="level2">Level 2: Master Penthouse</button>
+        </div>
+        <button type="button" id="btn-toggle-cutaway" class="cutaway-toggle-btn" aria-pressed="false">
+          <span>Inspect Spatial Plan</span>
+          <i aria-hidden="true">↗</i>
+        </button>
+      </aside>
+
+      <div class="tour-letterbox" id="tour-letterbox" aria-hidden="true">
+        <div class="letterbox-bar letterbox-top">
+          <span class="tour-live-tag">● AUTOPILOT TOUR</span>
+          <button type="button" id="btn-exit-tour" class="tour-exit-btn">Exit Tour <span>[ESC]</span></button>
+        </div>
+        <div class="letterbox-bar letterbox-bottom">
+          <div class="tour-caption" id="tour-caption">01 · LAGOON ARRIVAL</div>
+          <div class="tour-progress-track" aria-hidden="true"><div class="tour-progress-fill" id="tour-progress-fill"></div></div>
+        </div>
       </div>
 
       <div class="dive-caps model-caps">
         <article class="dive-cap">
-          <span class="dive-cap-kicker">01 / THE FORM</span>
-          <h3>A villa,<br /><em>in the round.</em></h3>
-          <p>Two cantilevered levels in pale stone and glass, set on a teak deck above the lagoon. Drag to turn it. Scroll to take it apart.</p>
-          <ul><li><b>350</b> m² total</li><li><b>3</b> levels</li><li><b>South</b> lagoon facing</li></ul>
+          <span class="dive-cap-kicker">01 / THE ARCHIPELAGO</span>
+          <h3>A private resort,<br /><em>in the lagoon.</em></h3>
+          <p>Overwater private villas, sunset penthouses, and a central club pavilion linked by illuminated boardwalks. Click any room to step inside.</p>
+          <ul><li><b>6</b> ocean villas</li><li><b>4</b> swimming pools</li><li><b>360°</b> lagoon view</li></ul>
         </article>
         <article class="dive-cap">
-          <span class="dive-cap-kicker">02 / THE LAYERS</span>
-          <h3>Three levels,<br /><em>lifted apart.</em></h3>
-          <p>Living and dining open to the deck. The master suite floats above with its own terrace. The roof is a garden under the stars.</p>
-          <ul><li><b>150</b> m² living level</li><li><b>110</b> m² master level</li><li><b>90</b> m² roof garden</li></ul>
+          <span class="dive-cap-kicker">02 / THE SUITES</span>
+          <h3>Private rooms,<br /><em>above the water.</em></h3>
+          <p>Each villa features autonomous private plunge pools, king suites, and panoramic ocean decks. Scroll or tap below to explore each room.</p>
+          <ul><li><b>440 m²</b> sunset residence</li><li><b>220 m²</b> lagoon suites</li><li><b>Private</b> plunge pools</li></ul>
         </article>
         <article class="dive-cap">
           <span class="dive-cap-kicker">03 / THE EVENING</span>
-          <h3>Then the lights<br /><em>come on.</em></h3>
-          <p>At dusk the glass glows, the pool lights and the jetty lanterns lead you home from the reef.</p>
-          <ul><li><b>12 m</b> lit pool</li><li><b>40 m</b> lantern jetty</li><li><b>0</b> neighbours</li></ul>
+          <h3>Then the island<br /><em>comes alive.</em></h3>
+          <p>At dusk, illuminated timber walkways, turquoise underwater pool lights, and overwater chandeliers glow in unison.</p>
+          <ul><li><b>22m</b> infinity pool</li><li><b>140m</b> boardwalk network</li><li><b>Zero</b> distractions</li></ul>
         </article>
+      </div>
+
+      <div class="model-controls" aria-label="Resort Navigation">
+        <div class="model-hud-group">
+          <button type="button" class="model-hud-btn" id="btn-zoom-in" title="Zoom in" aria-label="Zoom in">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </button>
+          <button type="button" class="model-hud-btn" id="btn-zoom-out" title="Zoom out" aria-label="Zoom out">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </button>
+          <button type="button" class="model-hud-btn" id="btn-reset-cam" title="Reset view" aria-label="Reset view">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+          </button>
+          <button type="button" id="btn-play-tour" class="model-tour-btn" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <span>Cinematic Tour</span>
+          </button>
+        </div>
+        <div class="model-views-group">
+          <button type="button" class="model-view-pill active" data-view="overview">The Archipelago</button>
+          <button type="button" class="model-view-pill" data-view="villa1">Lagoon Suites</button>
+          <button type="button" class="model-view-pill" data-view="villa2">Sunset Residences</button>
+          <button type="button" class="model-view-pill" data-view="pavilion">The Grand Pavilion</button>
+          <button type="button" class="model-view-pill" data-view="spa">Garden Sanctuary</button>
+        </div>
       </div>
 
       <div class="model-hint" aria-hidden="true">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>
-        Drag to rotate · Scroll to explore
+        Drag to explore · Scroll to traverse the day · Select residences to inspect
       </div>
-      <p class="model-fallback">3D view needs WebGL, which this browser has switched off. Everything else on the page works as normal.</p>
     </section>
 
     <!-- ═════════ 05 · Amenities ═════════ -->
     <section class="experiences section" id="amenities">
       <div class="section-heading" data-reveal>
-        <div class="section-kicker">[ 05 / AMENITIES ]</div>
+        <div class="section-kicker">05 — PRIVATE AMENITIES</div>
         <h2>Stay for the<br /><em>beautiful details.</em></h2>
         <p>Spin the circle and pick a place. Then scroll or pinch to zoom right into it.</p>
       </div>
@@ -283,7 +521,7 @@
     <!-- ═════════ 06 · Activities (horizontal day) ═════════ -->
     <section class="day" id="activities">
       <div class="section-heading day-head">
-        <div class="section-kicker">[ 06 / A DAY AT ELITE ]</div>
+        <div class="section-kicker">06 — A DAY AT ELITE</div>
         <h2>From first light<br /><em>to last swim.</em></h2>
         <p>Six ways to spend the hours. Scroll or swipe through the day.</p>
       </div>
@@ -320,7 +558,7 @@
     <section class="own" aria-label="Elite Residences">
       <div class="row align-items-end gy-5">
         <div class="col-lg-7" data-reveal>
-          <div class="section-kicker">[ ELITE RESIDENCES ]</div>
+          <div class="section-kicker">ELITE RESIDENCES</div>
           <h2>Stay for a week.<br /><em>Or own it forever.</em></h2>
         </div>
         <div class="col-lg-4 offset-lg-1" data-reveal>
@@ -337,7 +575,7 @@
     <section class="gallery section" id="gallery">
       <div class="section-heading gallery-heading" data-reveal>
         <div>
-          <div class="section-kicker">[ 07 / GALLERY ]</div>
+          <div class="section-kicker">07 — PERSPECTIVES</div>
           <h2>Collected<br /><em>light.</em></h2>
         </div>
         <p>A glimpse into the hours<br />you will never want to end.</p>
@@ -375,7 +613,7 @@
       <div class="row gx-lg-5 gy-5">
         <div class="col-lg-5" data-reveal>
           <div class="enquiry-intro">
-            <div class="section-kicker">[ 08 / YOUR ARRIVAL ]</div>
+            <div class="section-kicker">08 — ARRIVAL &amp; TRANSFERS</div>
             <h2>Begin<br /><em>somewhere.</em></h2>
             <p>Tell us a little about the escape you are imagining. Our concierge will be in touch within 24 hours.</p>
             <div class="contact-detail">
@@ -419,6 +657,10 @@
                   <label class="form-label" for="f-interest">I’m interested in</label>
                   <select class="form-select" id="f-interest" name="interest">
                     <option>A villa stay</option><option>A celebration</option><option>A wedding</option><option>Villa ownership</option>
+                    <option>Factsheet — Villa 01 Lagoon Suite</option>
+                    <option>Factsheet — Villa 02 Sunset Residence</option>
+                    <option>Factsheet — Grand Presidential Compound</option>
+                    <option>Factsheet — Garden Wellness Sanctuary</option>
                   </select>
                 </div>
                 <div class="col-12">
@@ -446,7 +688,12 @@
 
     <!-- ═════════ Closing call to action ═════════ -->
     <section class="closing-cta">
-      <div class="closing-media" style="background-image:url('assets/img/garden-pool.jpg'),var(--fallback)"></div>
+      <div class="closing-media" style="background-image:url('assets/img/garden-pool.jpg'),var(--fallback)">
+        <video class="closing-video" autoplay muted loop playsinline preload="none" poster="assets/img/garden-pool.jpg">
+          <source src="assets/vid/resort-experience.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="closing-wash"></div>
       <div class="closing-inner" data-reveal>
         <div class="section-kicker">[ THE LAST WORD ]</div>
         <h2>Leave the ordinary<br /><em>at the waterline.</em></h2>
