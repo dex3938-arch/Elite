@@ -1223,7 +1223,14 @@
 
   document.addEventListener('click', function (event) {
     var button = event.target.closest ? event.target.closest('.inspect-property-btn') : null;
-    if (button && activeInstance) activeInstance.flyToRoom(button.dataset.inspectView);
+    if (button) {
+      if (button.tagName === 'A' && button.getAttribute('href')) {
+        return; // Allow direct navigation to dedicated standalone residence page
+      }
+      if (activeInstance && button.dataset.inspectView) {
+        activeInstance.flyToRoom(button.dataset.inspectView);
+      }
+    }
   });
 
   var propertyFilter = document.querySelector('#property-filter-form');

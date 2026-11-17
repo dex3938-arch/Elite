@@ -15,7 +15,8 @@
 
   var modal = document.getElementById('residence-inspect-modal');
   var canvas = document.getElementById('residence-inspect-canvas');
-  if (!modal || !canvas || typeof THREE === 'undefined') return;
+  if (!canvas || typeof THREE === 'undefined') return;
+  var isStandalone = !modal;
 
   // UI Elements
   var titleEl = document.getElementById('inspect-title');
@@ -33,12 +34,12 @@
   var autoRotateBtn = document.getElementById('inspect-btn-autorotate');
   var resetBtn = document.getElementById('inspect-btn-reset');
   var inquireBtn = document.getElementById('inspect-inquire-btn');
-  var navBtns = modal.querySelectorAll('.inspect-nav-btn');
-  var solarBtns = modal.querySelectorAll('.solar-btn');
-  var levelBtns = modal.querySelectorAll('.inspect-level-btn');
-  var modeBtns = modal.querySelectorAll('.mode-tab-btn');
+  var navBtns = modal ? modal.querySelectorAll('.inspect-nav-btn') : document.querySelectorAll('.inspect-nav-btn');
+  var solarBtns = document.querySelectorAll('.solar-btn, .single-solar-btn');
+  var levelBtns = document.querySelectorAll('.inspect-level-btn, .level-tab-btn');
+  var modeBtns = document.querySelectorAll('.mode-tab-btn, .single-tab-btn');
   var photoStage = document.getElementById('inspect-photo-stage');
-  var photoImg = document.getElementById('inspect-photo-img');
+  var photoImg = document.getElementById('inspect-photo-img') || document.getElementById('single-main-img');
   var photoGalleryStrip = document.getElementById('inspect-photo-thumbs');
   var stepInto3dBtn = document.getElementById('inspect-step-3d-btn');
   var pinsContainer = document.getElementById('inspect-pins-container');
@@ -1152,17 +1153,26 @@
      ───────────────────────────────────────────────────────────── */
   function setMode(mode) {
     currentMode = mode;
-    for (var mb = 0; mb < modeBtns.length; mb++) {
-      var isTarget = modeBtns[mb].dataset.mode === mode;
-      modeBtns[mb].classList.toggle('active', isTarget);
-      modeBtns[mb].setAttribute('aria-selected', String(isTarget));
+    var allModeBtns = document.querySelectorAll('.mode-tab-btn, .single-tab-btn');
+    for (var mb = 0; mb < allModeBtns.length; mb++) {
+      var isTarget = (allModeBtns[mb].dataset.mode === mode || allModeBtns[mb].dataset.targetMode === mode);
+      allModeBtns[mb].classList.toggle('active', isTarget);
+      allModeBtns[mb].setAttribute('aria-selected', String(isTarget));
     }
 
+    var pStage = document.getElementById('single-photo-stage') || photoStage;
+    var sStage = document.getElementById('single-3d-stage');
+    var sBar = document.getElementById('single-solar-bar');
+
     if (mode === 'photo') {
-      if (photoStage) photoStage.classList.remove('is-hidden');
+      if (pStage) pStage.classList.remove('is-hidden');
+      if (sStage) sStage.classList.add('is-hidden');
+      if (sBar) sBar.classList.remove('is-visible');
       if (pinsContainer) pinsContainer.style.display = 'none';
     } else {
-      if (photoStage) photoStage.classList.add('is-hidden');
+      if (pStage) pStage.classList.add('is-hidden');
+      if (sStage) sStage.classList.remove('is-hidden');
+      if (sBar) sBar.classList.add('is-visible');
       if (pinsContainer) pinsContainer.style.display = 'block';
       onResize();
       // Brief cinematic intro sweep
@@ -1325,7 +1335,7 @@
   }
 
   function tick(timestamp) {
-    if (!isModalOpen) return;
+    if (!isModalOpen && !isStandalone) return;
     var time = timestamp * 0.001;
 
     if (currentMode === '3d') {
@@ -1382,9 +1392,11 @@
   function openModal(residenceId, preferredMode) {
     if (!scene) initScene();
     isModalOpen = true;
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('is-locked');
+    if (modal) {
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('is-locked');
+    }
 
     loadResidence(residenceId || 'villa1');
     setMode(preferredMode || 'photo');
@@ -1395,13 +1407,15 @@
   }
 
   function closeModal() {
-    isModalOpen = false;
-    modal.classList.remove('is-open');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('is-locked');
-    if (animFrameId) {
-      cancelAnimationFrame(animFrameId);
-      animFrameId = null;
+    if (modal) {
+      isModalOpen = false;
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('is-locked');
+      if (animFrameId) {
+        cancelAnimationFrame(animFrameId);
+        animFrameId = null;
+      }
     }
   }
 
@@ -1418,7 +1432,7 @@
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
   window.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && isModalOpen) closeModal();
+    if (e.key === 'Escape' && isModalOpen && modal) closeModal();
   });
 
   if (autoRotateBtn) {
@@ -1445,7 +1459,7 @@
   // Mode Tabs (Photo vs 3D)
   for (var mb = 0; mb < modeBtns.length; mb++) {
     modeBtns[mb].addEventListener('click', function () {
-      setMode(this.dataset.mode);
+      setMode(this.dataset.mode || this.dataset.targetMode);
     });
   }
 
@@ -1494,14 +1508,29 @@
   }
 
   // Wire up property cards:
-  // 1. Clicking card image or title opens in PHOTO mode
-  // 2. Clicking "Inspect in 3D" button opens directly in 3D mode!
+  // Direct investors cleanly to their dedicated separate residence page layouts!
   document.addEventListener('click', function (e) {
     var inspectBtn = e.target.closest('.inspect-property-btn');
     if (inspectBtn) {
+      var view = inspectBtn.dataset.inspectView || inspectBtn.dataset.inspectResidence || 'villa1';
+      var pageMap = {
+        villa1: 'villa-01.html?mode=3d',
+        villa2: 'villa-02.html?mode=3d',
+        compound: 'compound.html?mode=3d',
+        spa: 'garden-sanctuary.html?mode=3d'
+      };
+      if (modal && modal.contains(inspectBtn)) {
+        e.preventDefault();
+        e.stopPropagation();
+        openModal(view, '3d');
+        return;
+      }
+      if (pageMap[view]) {
+        window.location.href = pageMap[view];
+        return;
+      }
       e.preventDefault();
       e.stopPropagation();
-      var view = inspectBtn.dataset.inspectView || inspectBtn.dataset.inspectResidence || 'villa1';
       openModal(view, '3d');
       return;
     }
@@ -1510,13 +1539,31 @@
     var cardTitle = e.target.closest('.residence-card-heading');
     if (cardImg || cardTitle) {
       var card = (cardImg || cardTitle).closest('.residence-card');
-      if (card) {
+      if (card && (!modal || !modal.contains(card))) {
         var btnInCard = card.querySelector('.inspect-property-btn');
         var rView = btnInCard ? (btnInCard.dataset.inspectView || btnInCard.dataset.inspectResidence) : 'villa1';
+        var pageMap2 = {
+          villa1: 'villa-01.html',
+          villa2: 'villa-02.html',
+          compound: 'compound.html',
+          spa: 'garden-sanctuary.html'
+        };
+        if (pageMap2[rView]) {
+          window.location.href = pageMap2[rView];
+          return;
+        }
         openModal(rView, 'photo');
       }
     }
   });
+
+  // Auto-run if on standalone residence page
+  if (isStandalone) {
+    var params = new URLSearchParams(window.location.search);
+    var targetId = params.get('id') || (window.location.hash ? window.location.hash.replace('#', '') : null) || window.RESIDENCE_ID || 'villa1';
+    var targetMode = params.get('mode') === '3d' ? '3d' : 'photo';
+    openModal(targetId, targetMode);
+  }
 
   // Expose globally
   window.residenceInspector = {
