@@ -1535,7 +1535,7 @@
       return;
     }
 
-    var cardImg = e.target.closest('.residence-image');
+    var cardImg = e.target.closest('.residence-image, .residence-image-box');
     var cardTitle = e.target.closest('.residence-card-heading');
     if (cardImg || cardTitle) {
       var card = (cardImg || cardTitle).closest('.residence-card');

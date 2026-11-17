@@ -772,8 +772,18 @@
       camera.updateProjectionMatrix();
     }
 
+    var isModelVisible = true;
+    if ('IntersectionObserver' in window && root) {
+      var modelObserver = new IntersectionObserver(function (entries) {
+        if (entries && entries[0]) {
+          isModelVisible = entries[0].isIntersecting;
+        }
+      }, { rootMargin: '150px' });
+      modelObserver.observe(root);
+    }
+
     function frame(time) {
-      if (!active) return;
+      if (!active || !isModelVisible) return;
 
       // Ambient cinematic continuous cruise when user is idle
       if (ambientMotion.enabled && !drag.on && !tourPlaying) {

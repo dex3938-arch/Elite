@@ -55,26 +55,33 @@
     var num = $('#preloader-num'), counter = { v: 0 };
     var lines = $$('.hero h1 > span > span');
     var fades = ['.eyebrow', '.hero-sub', '.hero-actions', '.hero-footer', '.site-nav'];
-    var dur = reduced ? 0.2 : 0.85;
+    var hasHash = !!window.location.hash;
+    var dur = reduced || hasHash ? 0.2 : 0.5;
     gsap.set(lines, { yPercent: 115 });
     gsap.set(fades, { autoAlpha: 0 });
-    gsap.set('.hero-media', { scale: 1.3 });
+    gsap.set('.hero-media', { scale: 1.15 });
 
     gsap.timeline({
       onComplete: function () {
         document.body.classList.remove('is-loading');
         $('.preloader').remove();
-        if (lenis) lenis.start();
+        if (lenis) {
+          lenis.start();
+          if (hasHash) {
+            var targetEl = document.querySelector(window.location.hash);
+            if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
         ScrollTrigger.refresh();
       }
     })
       .to(counter, { v: 100, duration: dur, ease: 'power2.inOut', onUpdate: function () { num.textContent = Math.round(counter.v); } })
       .to('.preloader-bar i', { scaleX: 1, duration: dur, ease: 'power2.inOut' }, 0)
-      .to('.preloader > *:not(.preloader-bar)', { autoAlpha: 0, y: -20, duration: 0.35, stagger: 0.04 })
-      .to('.preloader', { yPercent: -100, duration: 0.8, ease: 'expo.inOut' }, '-=0.1')
-      .to('.hero-media', { scale: 1, duration: 1.8, ease: 'expo.out' }, '-=0.6')
-      .to(lines, { yPercent: 0, duration: 1.0, ease: 'expo.out', stagger: 0.1 }, '-=1.4')
-      .to(fades, { autoAlpha: 1, duration: 0.8, stagger: 0.06 }, '-=0.9');
+      .to('.preloader > *:not(.preloader-bar)', { autoAlpha: 0, y: -15, duration: 0.25, stagger: 0.02 })
+      .to('.preloader', { yPercent: -100, duration: 0.5, ease: 'expo.inOut' }, '-=0.05')
+      .to('.hero-media', { scale: 1, duration: 1.0, ease: 'expo.out' }, '-=0.4')
+      .to(lines, { yPercent: 0, duration: 0.7, ease: 'expo.out', stagger: 0.08 }, '-=0.9')
+      .to(fades, { autoAlpha: 1, duration: 0.6, stagger: 0.05 }, '-=0.6');
   }
 
   /* ───────── 3. Scroll scenes ───────── */
